@@ -198,6 +198,7 @@ lwip_strnicmp(const char *str1, const char *str2, size_t len)
 void
 lwip_itoa(char *result, size_t bufsize, int number)
 {
+#if 0
   char *res = result;
   char *tmp = result + bufsize - 1;
   int n = (number >= 0) ? number : -number;
@@ -236,5 +237,6 @@ lwip_itoa(char *result, size_t bufsize, int number)
   }
   /* move from temporary buffer to output buffer (sign is not moved) */
   memmove(res, tmp, (size_t)((result + bufsize) - tmp));
+#endif
 }
 #endif

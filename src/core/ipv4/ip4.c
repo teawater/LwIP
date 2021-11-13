@@ -37,7 +37,7 @@
  * Author: Adam Dunkels <adam@sics.se>
  *
  */
-
+#if 0
 #include "lwip/opt.h"
 
 #if LWIP_IPV4
@@ -1130,3 +1130,4 @@ ip4_debug_print(struct pbuf *p)
 #endif /* IP_DEBUG */
 
 #endif /* LWIP_IPV4 */
+#endif

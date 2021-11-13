@@ -125,6 +125,7 @@
 
 #if !NO_SYS
 
+#if 0
 #ifndef sys_msleep
 /**
  * Sleep for some ms. Timeouts are NOT processed while sleeping.
@@ -144,5 +145,6 @@ sys_msleep(u32_t ms)
   }
 }
 #endif /* sys_msleep */
+#endif
 
 #endif /* !NO_SYS */

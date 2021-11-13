@@ -325,11 +325,13 @@ void sys_arch_unprotect(sys_prot_t pval)
 #endif
 #endif
 
-int* __getreent(void);
+//int* __getreent(void);
+static int getreent;
 
 static inline int* libc_errno(void)
 {
-	return __getreent();
+	//return __getreent();
+	return &getreent;
 }
 
 #if LWIP_SOCKET

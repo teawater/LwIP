@@ -342,6 +342,7 @@ lowpan6_tmr(void)
 static err_t
 lowpan6_frag(struct netif *netif, struct pbuf *p, const struct lowpan6_link_addr *src, const struct lowpan6_link_addr *dst)
 {
+#if 0
   struct pbuf *p_frag;
   u16_t frag_len, remaining_len, max_data_len;
   u8_t *buffer;
@@ -489,6 +490,8 @@ lowpan6_frag(struct netif *netif, struct pbuf *p, const struct lowpan6_link_addr
   pbuf_free(p_frag);
 
   return err;
+#endif
+  return -ENOSYS;
 }
 
 /**

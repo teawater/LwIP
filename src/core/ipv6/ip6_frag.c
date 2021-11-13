@@ -271,6 +271,7 @@ ip6_reass_remove_oldest_datagram(struct ip6_reassdata *ipr, int pbufs_needed)
 struct pbuf *
 ip6_reass(struct pbuf *p)
 {
+#if 0
   struct ip6_reassdata *ipr, *ipr_prev;
   struct ip6_reass_helper *iprh, *iprh_tmp, *iprh_prev=NULL;
   struct ip6_frag_hdr *frag_hdr;
@@ -666,6 +667,8 @@ ip6_reass(struct pbuf *p)
 nullreturn:
   IP6_FRAG_STATS_INC(ip6_frag.drop);
   pbuf_free(p);
+  return NULL;
+#endif
   return NULL;
 }
 

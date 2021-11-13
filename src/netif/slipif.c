@@ -115,6 +115,7 @@ struct slipif_priv {
 static err_t
 slipif_output(struct netif *netif, struct pbuf *p)
 {
+#if 0
   struct slipif_priv *priv;
   struct pbuf *q;
   u16_t i;
@@ -155,6 +156,8 @@ slipif_output(struct netif *netif, struct pbuf *p)
   /* End with packet delimiter. */
   sio_send(SLIP_END, priv->sd);
   return ERR_OK;
+#endif
+
 }
 
 #if LWIP_IPV4
@@ -329,6 +332,7 @@ slipif_rxbyte_input(struct netif *netif, u8_t c)
 static void
 slipif_loop_thread(void *nf)
 {
+#if 0
   u8_t c;
   struct netif *netif = (struct netif *)nf;
   struct slipif_priv *priv = (struct slipif_priv *)netif->state;
@@ -338,6 +342,7 @@ slipif_loop_thread(void *nf)
       slipif_rxbyte_input(netif, c);
     }
   }
+#endif
 }
 #endif /* SLIP_USE_RX_THREAD */
 
@@ -359,6 +364,7 @@ slipif_loop_thread(void *nf)
 err_t
 slipif_init(struct netif *netif)
 {
+#if 0
   struct slipif_priv *priv;
   u8_t sio_num;
 
@@ -414,6 +420,8 @@ slipif_init(struct netif *netif)
                  SLIPIF_THREAD_STACKSIZE, SLIPIF_THREAD_PRIO);
 #endif /* SLIP_USE_RX_THREAD */
   return ERR_OK;
+#endif
+  return -1;
 }
 
 /**
@@ -425,6 +433,7 @@ slipif_init(struct netif *netif)
 void
 slipif_poll(struct netif *netif)
 {
+#if 0
   u8_t c;
   struct slipif_priv *priv;
 
@@ -436,6 +445,7 @@ slipif_poll(struct netif *netif)
   while (sio_tryread(priv->sd, &c, 1) > 0) {
     slipif_rxbyte_input(netif, c);
   }
+#endif
 }
 
 #if SLIP_RX_FROM_ISR
